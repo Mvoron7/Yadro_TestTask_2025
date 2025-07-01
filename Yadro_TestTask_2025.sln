@@ -14,9 +14,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36D591C7-65C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1C8EFC4F-8BC9-42A9-8CEF-3C36DC7D93E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroERP", "src\MicroERP\MicroERP.csproj", "{5ADD0020-0B0F-4D51-AEB0-83BC6A4379E7}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ADD0020-0B0F-4D51-AEB0-83BC6A4379E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADD0020-0B0F-4D51-AEB0-83BC6A4379E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ADD0020-0B0F-4D51-AEB0-83BC6A4379E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ADD0020-0B0F-4D51-AEB0-83BC6A4379E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5ADD0020-0B0F-4D51-AEB0-83BC6A4379E7} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {254D8CF7-63B9-4999-B1E1-048A382A75C4}
