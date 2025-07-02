@@ -1,12 +1,29 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using MicroERP.Abstractions;
+using MicroERP.Repositories;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=:memory:"), ServiceLifetime.Singleton
+);
+
+builder.Services.AddScoped<IBoardRepository, BoardRepository>();
+
 var app = builder.Build();
 
+// Создание таблиц при старте
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.OpenConnection();
+    dbContext.Database.EnsureCreated();
+}
 
 if (app.Environment.IsDevelopment())
 {
