@@ -1,5 +1,6 @@
 ﻿using MicroERP.Abstractions;
 using MicroERP.Repositories;
+using MicroERP.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 builder.Services.AddScoped<IBoardRepository, BoardRepository>();
+builder.Services.AddScoped<IBoardService ,BoardService>();
 
 var app = builder.Build();
 
