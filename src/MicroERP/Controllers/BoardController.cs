@@ -61,4 +61,19 @@ public class BoardController(ILogger<BoardController> l, IBoardService s)
             return StatusCode(StatusCodes.Status500InternalServerError, new { Error = "Internal server error" });
         }
     }
+
+    [HttpGet(@"Info/{boardId}")]
+    public async Task<ActionResult<PsBoard>> GetBoardInfo(int boardId)
+    {
+        try
+        {
+            var boards = await service.GetAsync(boardId);
+            return Ok(boards);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "При получении истории платы произошла ошибка");
+            return StatusCode(StatusCodes.Status400BadRequest, new { Error = "Bad Request" });
+        }
+    }
 }
